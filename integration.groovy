@@ -21,6 +21,9 @@ import hudson.model.*
 
 def deploymentDirectories = []
 def updateType = ""
+def s3BucketName = "testgrid-pipeline-logs"
+def s3BuildLogPath = ""
+def s3PathConstructor = ""
 
 pipeline {
 agent {label 'pipeline-agent'}
