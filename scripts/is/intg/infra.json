@@ -70,6 +70,27 @@
 			"validation_query": "SELECT 1"
 		},
 		{
+			"name": "mariadb",
+			"file_name": "mysql-connector-java-8.0.28",
+			"driver": "com.mysql.jdbc.Driver",
+            "database": 
+            [
+                {
+					"name": "WSO2IDENTITY_DB",
+                    "url": "jdbc:mysql://DB_HOST:3306/WSO2IDENTITY_DB?autoReconnect=true&amp;useSSL=false",
+					"username": "DB_USERNAME",
+					"password": "DB_PASSWORD"
+				},
+				{
+					"name": "WSO2SHARED_DB",
+					"url": "jdbc:mysql://DB_HOST:3306/WSO2SHARED_DB?autoReconnect=true&amp;useSSL=false",
+					"username": "DB_USERNAME",
+					"password": "DB_PASSWORD"
+				}
+			],
+			"validation_query": "SELECT 1"
+		},
+		{
 			"name": "postgres",
 			"file_name": "postgresql-42.2.14",
 			"driver": "org.postgresql.Driver",
