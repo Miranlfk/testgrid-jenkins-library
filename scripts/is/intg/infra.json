@@ -71,19 +71,18 @@
 		},
 		{
 			"name": "mariadb",
-			"file_name": "mysql-connector-java-8.0.28",
-			"driver": "com.mysql.jdbc.Driver",
-            "database": 
-            [
-                {
+			"file_name": "mariadb-java-client-3.5.1",
+			"driver": "org.mariadb.jdbc.Driver",
+			"database": [
+				{
 					"name": "WSO2IDENTITY_DB",
-                    "url": "jdbc:mysql://DB_HOST:3306/WSO2IDENTITY_DB?autoReconnect=true&amp;useSSL=false",
+					"url": "jdbc:mysql://DB_HOST:3306/WSO2IDENTITY_DB?permitMysqlScheme&autoReconnect=true&useSSL=false",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				},
 				{
 					"name": "WSO2SHARED_DB",
-					"url": "jdbc:mysql://DB_HOST:3306/WSO2SHARED_DB?autoReconnect=true&amp;useSSL=false",
+					"url": "jdbc:mysql://DB_HOST:3306/WSO2SHARED_DB?permitMysqlScheme&autoReconnect=true&useSSL=false",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				}
