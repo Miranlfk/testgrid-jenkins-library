@@ -52,7 +52,7 @@ fi
 
 wget -q ${SCRIPT_LOCATION}
 
-if [[ ${OperatingSystem} == "Ubuntu" ]]; 
+if [[ ${OperatingSystem} == "Ubuntu" || ${OperatingSystem} == "Ubuntu-ARM" ]]; 
 then
     instanceUser="ubuntu"
 elif [[ ${OperatingSystem} == "CentOS" ]]; 
