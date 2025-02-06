@@ -49,7 +49,7 @@
     "jdbc": 
     [
 		{
-			"name": "db2",
+			"name": "db2-se",
 			"file_name": "db2jcc4",
 			"driver": "com.ibm.db2.jcc.DB2Driver",
 			"database": [
