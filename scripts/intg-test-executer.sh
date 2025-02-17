@@ -38,6 +38,7 @@ GIT_USER=$(grep -w "GithubUserName" ${PROP_FILE} | cut -d'=' -f2)
 GIT_PASS=$(grep -w "GithubPassword" ${PROP_FILE} | cut -d'=' -f2)
 PRODUCT_GIT_REPO_NAME=$(grep -w "ProductRepository" ${PROP_FILE} | rev | cut -d'/' -f1 | rev | cut -d'.' -f1)
 keyFileLocation="${INPUTS_DIR}/testgrid-key.pem"
+keyFileLocation2="${INPUTS_DIR}/deployment-prod.pem"
 SCRIPT_LOCATION=$(grep -w "ProductTestScriptLocation" ${PROP_FILE} | cut -d'=' -f2)
 TEST_SCRIPT_NAME=$(echo $SCRIPT_LOCATION | rev | cut -d'/' -f1 | rev)
 TEST_REPORTS_DIR="$(grep -w "SurefireReportDir" ${PROP_FILE} | cut -d'=' -f2 )"
@@ -52,15 +53,19 @@ fi
 
 wget -q ${SCRIPT_LOCATION}
 
-if [[ ${OperatingSystem} == "Ubuntu" || ${OperatingSystem} == "Ubuntu-ARM" ]]; 
+if [[ ${OperatingSystem} == "Ubuntu" ]]; 
 then
     instanceUser="ubuntu"
+elif [[ ${OperatingSystem} == "Ubuntu-ARM" ]]; 
+then
+    instanceUser="ubuntu-arm"
 elif [[ ${OperatingSystem} == "CentOS" ]]; 
 then
     instanceUser="centos"
 else
     instanceUser="ec2-user"
 fi
+
 aws s3 cp 's3://integration-testgrid-resources/testgrid-key.pem' ${keyFileLocation}
 chmod 400 ${keyFileLocation}
 
@@ -78,7 +83,9 @@ ssh -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${keyFileL
 
 # Setting the test status as failed
 MVNSTATE=1
-chmod 600 ${keyFileLocation}
+# aws s3 cp 's3://integration-testgrid-resources/deployment-prod.pem' ${keyFileLocation}
+chmod 400 ${keyFileLocation}
+
 log_info "Executing ${TEST_SCRIPT_NAME} on remote Instance"
 ssh -vvv -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ${keyFileLocation} $instanceUser@${WSO2InstanceName} "cd /opt/testgrid/workspace && sudo bash ${TEST_SCRIPT_NAME} ${PRODUCT_GIT_URL} ${PRODUCT_GIT_BRANCH} ${PRODUCT_NAME} ${PRODUCT_VERSION} ${GIT_USER} ${GIT_PASS} ${TEST_MODE}"
 # Getting the test status
