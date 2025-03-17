@@ -33,12 +33,10 @@ stages {
             script {
                 cfn_repo_url="https://github.com/Miranlfk/testgrid.git"
                 cfn_repo_branch="master2"
-                if (apim_pre_release.toBoolean()){
-                    cfn_repo_branch="apim-pre-release"
+                if (pre_release.toBoolean()){
+                    updateType="pre-release"
                 }
-                if (use_wum.toBoolean()){
-                    updateType="wum"
-                }else{
+                else{
                     updateType="u2"
                 }
                 dir("testgrid") {
@@ -249,16 +247,12 @@ def sendEmail(deploymentDirectories, updateType) {
             <td>${product_version}</td>
         </tr>
         <tr>
-            <td>Used WUM as Update</td>
-            <td>${use_wum}</td>
-        </tr>
-        <tr>
             <td>Used Staging as Update</td>
             <td>${use_staging}</td>
         </tr>
         <tr>
-            <td>Used APIM pre-release</td>
-            <td>${apim_pre_release}</td>
+            <td>Used IAM pre-release</td>
+            <td>${pre_release}</td>
         </tr>
         <tr>
             <td>Operating Systems</td>
