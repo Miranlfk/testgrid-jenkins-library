@@ -120,7 +120,7 @@ stages {
                     ./scripts/deployment-builder.sh ${product} ${product_version} '''+updateType+'''
                 '''
                 //Generate S3 Log output path
-                s3BuildLogPath = "${s3BucketName}/artifacts/jobs${s3PathConstructor}/${product}-${product_version}/build-${BUILD_NUMBER}"
+                s3BuildLogPath = "${s3BucketName}/artifacts/jobs/${s3PathConstructor}/${product}-${product_version}/build-${BUILD_NUMBER}"
                 println "Your Logs will be uploaded to: s3://"+s3BuildLogPath
                 sh'''
                     echo "Writting S3 Log uploading endpoint to parameter file"
@@ -188,12 +188,12 @@ def create_build_jobs(deploymentDirectory){
                     sh'''
                         ./scripts/intg-test-deployment.sh '''+deploymentDirectory+''' ${product_repository} ${product_test_branch} ${product_test_script}
                     '''
-                }
-                stage("Uploading results to ${deploymentDirectory}") {
+                    stage("Uploading results to ${deploymentDirectory}") {
                         println "Upoading logs..."
                         sh'''
                             ./scripts/post-actions.sh '''+deploymentDirectory+'''
                         '''
+                    }
                 }
             }
         }
@@ -294,14 +294,7 @@ def sendEmail(deploymentDirectories, updateType) {
         </div>
         """
     subject="[TestGrid][${updateType.toUpperCase()}][${product.toUpperCase()}:${product_version}][INTG]-Build ${currentBuild.currentResult}-#${env.BUILD_NUMBER}"
-    senderEmailGroup=""
-    if(product.equals("wso2am") || product.equals("ei") || product.equals("esb") || product.equals("mi")){
-        senderEmailGroup = "integration-builder@wso2.com"
-    }else if(product.equals("is")) {
-        senderEmailGroup = "iam-builder@wso2.com"
-    }else if(product.equals("ob")) {
-        senderEmailGroup = "bfsi-group@wso2.com"
-    }
+    senderEmailGroup="iam-builder@wso2.com"
     emailext(to: "${senderEmailGroup},builder@wso2.org",
             subject: subject,
             body: content, mimeType: 'text/html')
