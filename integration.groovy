@@ -163,7 +163,10 @@ post {
 
             localLogDir="build-${BUILD_NUMBER}"
             mkdir -p ${localLogDir}
-            aws s3 cp s3://'''+s3BuildLogPath+'''/${localLogDir} --recursive --quiet
+            aws s3 cp s3://'''+s3BuildLogPath+'''/ ${localLogDir} --recursive --quiet
+
+            echo "Listing files in ${localLogDir} to verify copy:"
+            ls -la ${localLogDir}
             echo "Job is completed... Deleting the workspace directories!"
         '''
         archiveArtifacts artifacts: "build-${env.BUILD_NUMBER}/**/*.*", fingerprint: true
