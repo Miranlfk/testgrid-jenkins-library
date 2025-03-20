@@ -163,7 +163,7 @@ post {
 
             localLogDir="build-${BUILD_NUMBER}"
             mkdir -p ${localLogDir}
-            aws s3 cp s3://'''+s3BuildLogPath+'''/ ${localLogDir} --recursive --quiet
+            aws s3 cp s3://'''+s3BuildLogPath+'''/ ${localLogDir}/ --recursive --quiet
 
             echo "Listing files in ${localLogDir} to verify copy:"
             ls -la ${localLogDir}
