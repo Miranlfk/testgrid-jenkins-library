@@ -28,8 +28,8 @@ stages {
     stage('Clone CFN repo') {
         steps {
             script {
-                cfn_repo_url="https://github.com/Miranlfk/testgrid.git"
-                cfn_repo_branch="master2"
+                cfn_repo_url="https://github.com/wso2/testgrid.git"
+                cfn_repo_branch="master"
                 if (pre_release.toBoolean()){
                     updateType="pre-release"
                 }
