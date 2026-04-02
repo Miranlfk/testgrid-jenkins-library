@@ -197,19 +197,13 @@
             [
                 {
 					"name": "WSO2IDENTITY_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2IDENTITY_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				},
 				{
 					"name": "WSO2SHARED_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2SHARED_DB",
-					"username": "DB_USERNAME",
-					"password": "DB_PASSWORD"
-				},
-                {
-					"name": "WSO2AGENTIDENTITY_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2AGENTIDENTITY_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				}
@@ -224,19 +218,13 @@
             [
                 {
 					"name": "WSO2IDENTITY_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2IDENTITY_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				},
 				{
 					"name": "WSO2SHARED_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2SHARED_DB",
-					"username": "DB_USERNAME",
-					"password": "DB_PASSWORD"
-				},
-                {
-					"name": "WSO2AGENTIDENTITY_DB",
-					"url": "jdbc:oracle:thin:@//DB_HOST:1521/WSO2AGENTIDENTITY_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
 				}
