@@ -206,6 +206,12 @@
 					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
+				},
+				{
+					"name": "WSO2AGENTIDENTITY_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
+					"username": "DB_USERNAME",
+					"password": "DB_PASSWORD"
 				}
 			],
 			"validation_query": "SELECT 1 FROM DUAL"
@@ -224,6 +230,12 @@
 				},
 				{
 					"name": "WSO2SHARED_DB",
+					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
+					"username": "DB_USERNAME",
+					"password": "DB_PASSWORD"
+				},
+				{
+					"name": "WSO2AGENTIDENTITY_DB",
 					"url": "jdbc:oracle:thin:@//DB_HOST:1521/IAMDB",
 					"username": "DB_USERNAME",
 					"password": "DB_PASSWORD"
