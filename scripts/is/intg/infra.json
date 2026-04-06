@@ -191,7 +191,7 @@
 		},
 		{
 			"name": "oracle-se2",
-			"file_name": "ojdbc8",
+			"file_name": "ojdbc11",
 			"driver": "oracle.jdbc.OracleDriver",
             "database": 
             [
