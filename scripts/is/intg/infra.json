@@ -137,7 +137,7 @@
 		},
 		{
 			"name": "postgres",
-			"file_name": "postgresql-42.2.14",
+			"file_name": "postgresql-42.7.10",
 			"driver": "org.postgresql.Driver",
             "database": 
             [
