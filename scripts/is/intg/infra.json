@@ -84,8 +84,8 @@
 		},
         {
 			"name": "mysql",
-			"file_name": "mysql-connector-java-8.0.31",
-			"driver": "com.mysql.jdbc.Driver",
+			"file_name": "mysql-connector-java-8.4.0",
+			"driver": "com.mysql.cj.jdbc.Driver",
             "database": 
             [
                 {
